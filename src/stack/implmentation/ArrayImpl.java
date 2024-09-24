@@ -1,4 +1,4 @@
-package implmentation;
+package stack.implmentation;
 
 public class ArrayImpl {
 	

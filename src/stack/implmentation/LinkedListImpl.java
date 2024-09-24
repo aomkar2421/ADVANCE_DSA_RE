@@ -1,4 +1,4 @@
-package implmentation;
+package stack.implmentation;
 
 class StackException extends Exception{
 	StackException(String msg){
@@ -100,7 +100,7 @@ public class LinkedListImpl {
 		st.push(3);
 		st.display();
 
-		System.out.println("size "+st.size());
+		System.out.println("size : "+st.size());
 		System.out.println(st.isEmpty());
 
 		System.out.println(st.pop());
