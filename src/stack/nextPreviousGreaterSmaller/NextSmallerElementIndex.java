@@ -2,9 +2,9 @@ package stack.nextPreviousGreaterSmaller;
 import java.util.Stack;
 import stack.PrintArray;
 
-public class PreviousSmallerElementIndex {
+public class NextSmallerElementIndex {
 	public static void main(String[] args) {
-		int [] arr = {1,5,2,3,1,6,3,4};
+		int [] arr = {7,5,2,3,1,6,3,2};
 		PrintArray.print(arr);
 		solution(arr);
 	}
@@ -14,16 +14,20 @@ public class PreviousSmallerElementIndex {
 		int n = arr.length;
 		int [] res = new int[n];
 
-		for (int i = 0; i < res.length; i++) {
+		for (int i = n-1; i >= 0; i--) {
 
-			while (!st.isEmpty() &&  arr[i]<=arr[st.peek()]) {
+			while (st.size()>0 && arr[st.peek()]>=arr[i]) {
 				st.pop();
 			}
-			if (st.isEmpty()) {
+			if (st.isEmpty() ) {
 				res[i] = -1;
 			}
-			else if(!st.isEmpty() && arr[i]>arr[st.peek()] ) {
+			else if (arr[st.peek()]<arr[i]) {
+//				if you want element insert below
 				res[i] = arr[st.peek()];
+				
+//				if you want index instead of element just insert follwing
+//				res[i] = arr[st.peek()];
 			}
 			st.push(i);
 		}

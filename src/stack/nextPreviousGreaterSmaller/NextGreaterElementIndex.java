@@ -2,7 +2,7 @@ package stack.nextPreviousGreaterSmaller;
 import java.util.Stack;
 import stack.PrintArray;
 
-public class NextGreaterIndex {
+public class NextGreaterElementIndex {
 	public static void main(String[] args) {
 		int [] arr = {1,5,2,3,1,6,3,4};
 		PrintArray.print(arr);
@@ -23,7 +23,11 @@ public class NextGreaterIndex {
 				res[i] = -1;
 			}
 			else if (arr[st.peek()]>arr[i]) {
+//				if you want element insert below
 				res[i] = arr[st.peek()];
+				
+//				if you want index instead of element just insert follwing
+//				res[i] = arr[st.peek()];
 			}
 			st.push(i);
 		}

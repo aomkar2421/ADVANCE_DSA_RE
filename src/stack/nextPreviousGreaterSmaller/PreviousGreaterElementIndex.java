@@ -2,9 +2,9 @@ package stack.nextPreviousGreaterSmaller;
 import java.util.Stack;
 import stack.PrintArray;
 
-public class PreviousSmallerElementIndex {
+public class PreviousGreaterElementIndex {
 	public static void main(String[] args) {
-		int [] arr = {1,5,2,3,1,6,3,4};
+		int [] arr = {9,5,7,3,2,6,3,4};
 		PrintArray.print(arr);
 		solution(arr);
 	}
@@ -16,18 +16,18 @@ public class PreviousSmallerElementIndex {
 
 		for (int i = 0; i < res.length; i++) {
 
-			while (!st.isEmpty() &&  arr[i]<=arr[st.peek()]) {
+			while (!st.isEmpty() && arr[i]>=arr[st.peek()]) {
 				st.pop();
 			}
 			if (st.isEmpty()) {
 				res[i] = -1;
 			}
-			else if(!st.isEmpty() && arr[i]>arr[st.peek()] ) {
-				res[i] = arr[st.peek()];
+			else if (arr[st.peek()]>arr[i]) {
+				res[i] = st.peek();
 			}
 			st.push(i);
+			
 		}
-
 		PrintArray.print(res);
 	}
 }
